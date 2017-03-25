@@ -1,0 +1,10 @@
+<!--{{ object_list }} como imprimir en php(echo) -->
+<h1></h1>
+<h2></h2>
+	<div>
+	{% for c in object_list %}
+		<a href="{% url 'category_detail' c.pk %}"> <!--category detail nombre que le damos a la url-->
+			{{ c.name }}
+		</a>
+		{% endfor %}
+	</div>
