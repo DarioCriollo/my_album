@@ -22,3 +22,4 @@ class PhotoListView(ListView):
 
 class PhotoDetailView(DetailView):
 	model=Photo
+
