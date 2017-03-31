@@ -1,26 +1,13 @@
-
-
-{% extends "base.html" %}
-{%  block section %}
-<h2>CATEGORY</h2>
-<HR>
+{% extends 'base.html' %}
+{% block section %}
+<h2>Category</h2>
+<hr>
 {% endblock section %}
 {% block maincontent %}
-	<div>
-		{% for c in object_list %}
-		<a href="">{{ c.name }}</a>
-		{% endfor %}
-	</div>
-	{% endblock maincontent%}
+<div>
+	{% for c in object_list %}
+		<a href="{% url 'category_detail' c.pk %}">{{ c.name }}</a>
+	{% endfor %}
 
-
-<h1>ALBUM</h1>
-<h2>cTAEGORY</h2>
-	<div>
-	{% for c in object_list %} <!--COMO ESTA ENTRE LLAVES ES CODIGO PYTHON-->
-		<a href="{% url 'category_detail' c.pk %}"> <!--category detail nombre que le damos a la url-->
-			{{ c.name }} <!--ESTO ES UN ECHO COMO PHP-->
-		</a>
-		{% endfor %}
-	</div>
-	<!--{{ object_list }} como imprimir en php(echo) -->
+</div>
+{% endblock maincontent %}

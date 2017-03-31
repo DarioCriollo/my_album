@@ -2,10 +2,26 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from album.models import Category,Photo
 from django.views.generic import ListView,DetailView
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
+
+class PhotoUpdate(UpdateView):
+	model = Photo
+	fields = '__all__'
+
+
+class PhotoCreate(CreateView):
+	model=Photo
+	fields = '__all__'
+
+
+class PhotoDelete(DeleteView):
+	model=Photo
+	success_url=reverse_lazy('photo_list')
 
 # Create your views here.
 def first_view(request):
-	return HttpResponse("<h1>esta es mi primera vista</h1>")
+	return render(request,"base.html")
 
 def category(request):
 	category_list=Category.objects.all()
